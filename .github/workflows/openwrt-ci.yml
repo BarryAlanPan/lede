@@ -109,9 +109,12 @@ jobs:
 
           # 编译x64固件:
           cat >> .config <<EOF
-          CONFIG_TARGET_x86=y
-          CONFIG_TARGET_x86_64=y
-          CONFIG_TARGET_x86_64_Generic=y
+          # CONFIG_TARGET_x86=y
+          # CONFIG_TARGET_x86_64=y
+          # CONFIG_TARGET_x86_64_Generic=y
+          CONFIG_TARGET_bcm53xx=y
+          CONFIG_TARGET_bcm53xx_DEVICE_phicomm-k3=y
+          CONFIG_TARGET_BOARD="bcm53xx"
           EOF
 
           # 固件压缩:
@@ -137,7 +140,7 @@ jobs:
           # 设置固件大小:
           cat >> .config <<EOF
           CONFIG_TARGET_KERNEL_PARTSIZE=100
-          CONFIG_TARGET_ROOTFS_PARTSIZE=1000
+          CONFIG_TARGET_ROOTFS_PARTSIZE=150
           EOF
 
           # USB3.0支持:
